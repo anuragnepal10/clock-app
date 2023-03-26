@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap');
+
+:root{
+    --clr-neutral: black;
+    --clr-neutral-accent: rgb(39, 39, 39);
+    --clr-neutral-invert: white;
+    --clr-neutral-invert-accent: rgb(230, 230, 230);
+    --clr-primary: rgb(243, 69, 69);
+    --time: 0.5s
+}
+
+:root.dark-mode {
+    --clr-neutral: white;
+    --clr-neutral-accent: rgb(230, 230, 230);
+    --clr-neutral-invert: black;
+    --clr-neutral-invert-accent: rgb(39, 39, 39);
+}
+
+*,*::before,*::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+input, button, textarea, select {
+    font: inherit;
+    color: inherit;
+}
+
+body{
+    text-align: center;
+    font-family: 'Muli', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: var(--clr-neutral-invert-accent);
+    color: var(--clr-neutral);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    padding: 3rem;
+    transition: color, background-color;
+    transition-duration: var(--time);
+}
+
+.btn {
+    width: 8rem;
+    height: 2.5rem;
+    border-radius: 3rem;
+    background-color: var(--clr-neutral-accent);
+    border: none;
+    color: var(--clr-neutral-invert);
+    font-weight: bold;
+    cursor: pointer;
+    transition: color, background-color;
+    transition-duration: var(--time);
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.clock {
+    width: 200px;
+    height: 200px;
+    /* background-color: var(--clr-neutral-invert); */
+    position: relative;
+    border-radius: 50%;
+}
+
+.center-circle {
+    width: 1rem;
+    height: 1rem;
+    background-color: var(--clr-primary);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.center-circle::before {
+    content: '';
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: var(--clr-neutral-accent);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: background-color;
+    transition-duration: var(--time);
+}
+
+.hand {
+    width: 0.25rem;
+    height: 40%;
+    background-color: var(--clr-neutral-accent);
+    position: absolute;
+    transform-origin: bottom center;
+    bottom: 50%;
+    left: 50%;
+    transition: background-color;
+    transition-duration: var(--time);
+}
+
+.hour-hand {
+    height: 30%;
+    transform: translateX(-50%) rotate(20deg);
+}
+
+.minute-hand {
+    transform: translateX(-50%) rotate(0deg);
+}
+
+.second-hand {
+    height: 45%;
+    background-color: var(--clr-primary);
+    transform: translateX(-50%) rotate(180deg);
+}
+
+.time {
+    font-size: 2.5rem;
+}
+
+.date {
+    font-size: 1.25rem;
+}
